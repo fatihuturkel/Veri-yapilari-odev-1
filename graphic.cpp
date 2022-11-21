@@ -11,6 +11,7 @@ void boslukBirak(int);
 
 inline void graphic(yoneticiListesiNode* yoneticiNode) {
 	int index = 1;
+	char input;
 	do
 	{
 		system("cls");
@@ -46,46 +47,63 @@ inline void graphic(yoneticiListesiNode* yoneticiNode) {
 			cout << "   ";
 		}
 
+		satirListesiNode satirListesiBasNodeTutucu[27];
+		for (int i = 0; i < 27; i++)
+		{
+			satirListesiBasNodeTutucu[i] = satirDondurV2(yoneticiNode, i);
+		}
 		yatayCizgiUzun();
 		cout << endl;
 		switch (index)
 		{
-		case 0: boslukBirak(0), dikenIsareti(),
-			boslukBirak(0), printYoneticiSatirAdresNew(yoneticiNode, 0, 0),
-			boslukBirak(0), yatayCizgiKisa();
+		case 0:
+			boslukBirak(0), dikenIsareti();
+			for (int i = 0; i < 3; i++)
+			{
+				boslukBirak(0), deneme4(yoneticiNode, 0, 2, satirListesiBasNodeTutucu[0]), cout << endl; // adres
+				boslukBirak(0), yatayCizgiKisa();
+				boslukBirak(0), deneme4(yoneticiNode, 0, 1, satirListesiBasNodeTutucu[0]), cout << endl; //data
+				boslukBirak(0), yatayCizgiKisa();
+				boslukBirak(0), deneme4(yoneticiNode, 0, 4, satirListesiBasNodeTutucu[0]), cout << endl; //next
 
-			boslukBirak(0), printYoneticiSatirAdresDataNew(yoneticiNode, 0, 0);
-			boslukBirak(0), yatayCizgiKisa();
+				cout << endl;
+				deneme4(yoneticiNode, 0, 3, satirListesiBasNodeTutucu[0]);
+			}
+			deneme4(yoneticiNode, 0, 5, satirListesiBasNodeTutucu[0]);
 
-			boslukBirak(0), printYoneticiSatirAdresDataNew(yoneticiNode, 0, 1);
-			boslukBirak(0), yatayCizgiKisa();
+			cout << endl << endl << endl;
 			break;
 		case 1:
-			boslukBirak(1), dikenIsareti(); 
-			satirListesiNode prevSatirListesi= satirDondurV2(yoneticiNode, 1);
+			boslukBirak(1), dikenIsareti();
+			satirListesiNode prevSatirListesi = satirDondurV2(yoneticiNode, 1);
 			for (int i = 0; i < 4; i++)
 			{
-				boslukBirak(1), deneme4(yoneticiNode,1,2,prevSatirListesi),cout<<endl ; // adres
+				boslukBirak(1), deneme4(yoneticiNode, 1, 2, prevSatirListesi), cout << endl; // adres
 				boslukBirak(1), yatayCizgiKisa();
-				boslukBirak(1), deneme4(yoneticiNode,1,1,prevSatirListesi),cout<<endl; //data
+				boslukBirak(1), deneme4(yoneticiNode, 1, 1, prevSatirListesi), cout << endl; //data
 				boslukBirak(1), yatayCizgiKisa();
-				boslukBirak(1), deneme4(yoneticiNode, 1, 4,prevSatirListesi), cout << endl; //next
-				
+				boslukBirak(1), deneme4(yoneticiNode, 1, 4, prevSatirListesi), cout << endl; //next
+
 				cout << endl;
-				deneme4(yoneticiNode, 1, 3,prevSatirListesi);
+				deneme4(yoneticiNode, 1, 3, prevSatirListesi);
 			}
-			deneme4(yoneticiNode, 1,5,prevSatirListesi);
-			
+			deneme4(yoneticiNode, 1, 5, prevSatirListesi);
+
 			cout << endl << endl << endl;
 		}
 
-		cin >> index;
-	} while (index!=5);
+		cin >> input;
+		switch (input)
+		{
+		case 'a': index--;break;
+		case 'd': index++;break;
+		}
+	} while (index != 5);
 
-	
+
 
 	/*
-	* 
+	*
 	case 1: boslukBirak(1), dikenIsareti(),
 			boslukBirak(1), printYoneticiSatirAdresNew(yoneticiNode, 1, 0),
 			boslukBirak(1), yatayCizgiKisa();
@@ -96,14 +114,9 @@ inline void graphic(yoneticiListesiNode* yoneticiNode) {
 	*/
 
 
-
-
-
-
 	//dikenIsareti();
 
 	//printYoneticiSatirAdresNew(yoneticiNode, 0, 0);
-
 
 	//yatayCizgi();
 	//printYoneticiSatirAdresDataNew(yoneticiNode, 0, 0);
@@ -130,7 +143,7 @@ inline void yatayCizgiUzun() {
 }
 
 inline void yatayCizgiKisa() {
-		cout << "------------------" << "   ";
+	cout << "------------------" << "   ";
 	cout << endl;
 }
 
@@ -140,7 +153,7 @@ inline void dikenIsareti() {
 }
 
 inline void boslukBirak(int carpim) {
-	for (int i = 0; i <carpim; i++)
+	for (int i = 0; i < carpim; i++)
 	{
 		cout << "                  " << "   ";
 	}
