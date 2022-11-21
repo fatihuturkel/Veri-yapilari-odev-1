@@ -52,6 +52,7 @@ inline void graphic(yoneticiListesiNode* yoneticiNode) {
 		{
 			satirListesiBasNodeTutucu[i] = satirDondurV2(yoneticiNode, i);
 		}
+
 		yatayCizgiUzun();
 		cout << endl;
 		switch (index)
@@ -100,7 +101,7 @@ inline void graphic(yoneticiListesiNode* yoneticiNode) {
 		}
 	} while (index != 5);
 
-
+	
 
 	/*
 	*

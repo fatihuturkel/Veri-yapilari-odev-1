@@ -3,11 +3,12 @@
 #include <iomanip>
 using namespace std;
 
-inline void appendYonetici(yoneticiListesiNode** head_ref, int satýr, float new_data) {                   // node oluþturur veya sona ekler.
+inline void appendYonetici(yoneticiListesiNode** head_ref, int input_satir, float input_ortalama, int input_eleman_sayisi) {                   // node oluþturur veya sona ekler.
 	yoneticiListesiNode* new_node = new yoneticiListesiNode();
 	yoneticiListesiNode* last = *head_ref;
-	new_node->ortalama = new_data;
-	new_node->satirNo = satýr;
+	new_node->ortalama = input_ortalama;
+	new_node->satirNo = input_satir;
+	new_node->elemanSayisi = input_eleman_sayisi;
 	new_node->next = NULL;
 
 	// yoneticiNode boþ ise baþlangýç oluþturur.
@@ -199,9 +200,6 @@ inline void printYoneticiSatirAdresNew(yoneticiListesiNode* node, int nodeNumber
 }
 
 
-
-
-
 inline void YoneticiSatirAdresPrev(yoneticiListesiNode* node, int nodenumber) {
 	yoneticiListesiNode* search = node;
 	for (int i = 0; i < nodenumber; i++)
@@ -225,40 +223,6 @@ inline void YoneticiSatirAdresNext(yoneticiListesiNode* node, int nodenumber) {
 	if (search->satirListesi->next != NULL) {
 		search->satirListesi->next;
 	}
-}
-
-inline void deneme1(yoneticiListesiNode* node,int nodeNumber) {
-	yoneticiListesiNode* search = node;
-	for (int i = 0; i < nodeNumber; i++)
-	{
-		search = search->next;
-	}
-	cout << search->satirListesi;
-}
-
-inline void deneme2(yoneticiListesiNode* node, int nodeNumber) {
-	yoneticiListesiNode* search = node;
-	for (int i = 0; i < nodeNumber; i++)
-	{
-		search = search->next;
-	}
-	if (search->satirListesi!=NULL)
-	{
-		cout << search->satirListesi->data;
-	}
-}
-
-inline void deneme3(yoneticiListesiNode* node, int nodeNumber) {
-	yoneticiListesiNode* search = node;
-	for (int i = 0; i < nodeNumber; i++)
-	{
-		search = search->next;
-	}
-	if (search->satirListesi==NULL)
-	{
-		search->satirListesi = search->satirListesi->next;
-	}
-	
 }
 
 inline void deneme4(yoneticiListesiNode* node, int nodeNumber, int switch_key,satirListesiNode satirNode) {
@@ -311,4 +275,16 @@ inline satirListesiNode satirDondurV2(yoneticiListesiNode* node, int nodeNumber)
 		temp = temp->next;
 	}
 	return *temp->satirListesi;
+}
+
+
+
+inline int yoneticiNode_elemanSayisi_dondur(yoneticiListesiNode* node, int nodeNumber) {
+	yoneticiListesiNode* search = node;
+	for (int i = 0; i < nodeNumber; i++)
+	{
+		search = search->next;
+	}
+
+	return search->elemanSayisi;
 }

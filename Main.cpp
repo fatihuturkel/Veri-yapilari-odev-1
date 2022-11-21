@@ -11,46 +11,48 @@ int main() {
 
 	ifstream dosyaOku;
 
-	string taranansatýr;
+	string taranansatir;
 	char karakter;
 	float ortalama;
-	float ArOrtalama[27][2];
+	float ArOrtalama[27][3];
 
 	dosyaOku.open("veriler.txt");
 
-	getline(dosyaOku, taranansatýr);
+	getline(dosyaOku, taranansatir);
 
-	int satýrno = 0;
+	int satirno = 0;
 	int i = 0;
 
 	do
 	{
-		satýrno++;
+		satirno++;
 		int sayac = 0;
 		int toplam = 0;
-		istringstream iss(taranansatýr);
-		string sayýStr;
-		while (getline(iss, sayýStr, ' ')) {
+		istringstream iss(taranansatir);
+		string sayiStr;
+		while (getline(iss, sayiStr, ' ')) {
 
-			stringstream ss(sayýStr);		 // string to int for sayý
-			int sayýInt = 0;
-			ss >> sayýInt;
+			stringstream ss(sayiStr);		 // string to int for sayý
+			int sayiInt = 0;
+			ss >> sayiInt;
 
-			toplam = toplam + sayýInt;
+			toplam = toplam + sayiInt;
 			sayac++;
 		}
 		ortalama = (float)toplam / sayac;
 		ortalama = round(ortalama * 10) / 10;   // virgülden sonra tek basamak icin yuvarlama islemi
 
-		for (int j = 0; j < 2; j++)
+		for (int j = 0; j < 3; j++)
 		{
 			if (j == 0)
 				ArOrtalama[i][0] = i;
+			else if (j == 1)
+				ArOrtalama[i][1] = ortalama;
 			else
-				ArOrtalama[i][j] = ortalama;
+				ArOrtalama[i][2] = sayac;       // eleman sayısını kullanmak icin eklendi.
 		}
 		i++;
-	} while (getline(dosyaOku, taranansatýr));
+	} while (getline(dosyaOku, taranansatir));
 	dosyaOku.close();
 
 	yoneticiListesiNode* head = NULL;
@@ -69,7 +71,7 @@ int main() {
 	// Yonetici düðümlerini oluþturur.
 	for (int i = 0; i < 27; i++)
 	{
-		appendYonetici(&head, ArOrtalama[i][0], ArOrtalama[i][1]);
+		appendYonetici(&head, ArOrtalama[i][0], ArOrtalama[i][1],ArOrtalama[i][2]);
 	}
 
 	satirListesiNode* satirListesi[27];                   // Satir listesi headlerini oluþturur.
@@ -85,10 +87,10 @@ int main() {
 		int satirNumber = satirDondur(head, i);
 		for (int i = 0; i < satirNumber + 1; i++)    // +1 arrayda diziler 0dan basladýgý icin eksik satýr cýkma sorununu çözüyor.
 		{
-			getline(dosyaOku, taranansatýr);
+			getline(dosyaOku, taranansatir);
 		}
 
-		istringstream iss(taranansatýr);
+		istringstream iss(taranansatir);
 		string sayiStr;
 		while (getline(iss, sayiStr, ' '))
 		{
@@ -116,5 +118,5 @@ int main() {
 
 	printAdres(head);
 	graphic(head);
-
+	
 }
