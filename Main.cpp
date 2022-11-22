@@ -111,3 +111,9 @@ int main() {
 	graphic(head);
 	
 }
+
+
+
+
+
+// gelecek islemler: interafktiflik tarafında fonksiyonel islemler eklenecek.
