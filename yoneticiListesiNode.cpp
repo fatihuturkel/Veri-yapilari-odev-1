@@ -108,55 +108,6 @@ inline void printYoneticiOrtalama(yoneticiListesiNode* node, int nodeNumber) {
 	cout << "|" <<setw(16)<< node->ortalama << "|";
 }
 
-inline void printYoneticiSatirAdres(yoneticiListesiNode* node, int nodeNumber) {
-	for (int i = 0; i < nodeNumber; i++)
-	{
-		node = node->next;
-	}
-	cout << setw(17) << node->satirListesi <<"    ";
-}
-
-inline void printYoneticiSatirAdresData(yoneticiListesiNode* node, int nodeNumber,int elemanNumber) {
-	yoneticiListesiNode* helperNode;
-	helperNode = node;
-	for (int i = 0; i < nodeNumber; i++)
-	{
-		node = node->next;
-	}
-	for (int i = 0; i < elemanNumber; i++)
-	{
-		
-		if (helperNode->satirListesi==nullptr)
-		{	
-			helperNode = helperNode->prev;
-			break;
-		}
-		helperNode->satirListesi = helperNode->satirListesi->next;
-	}
-	if (helperNode!=nullptr || helperNode->satirListesi!=nullptr)
-	{
-		cout << "|" << setw(16) << helperNode->satirListesi->data << "|" << "   ";
-	}
-}
-
-inline void printYoneticiSatirAdresNext(yoneticiListesiNode* node, int nodeNumber, int elemanNumber) {
-	yoneticiListesiNode* helperNode;
-	helperNode = node;
-	for (int i = 0; i < nodeNumber; i++)
-	{
-		node = node->next;
-	}
-	for (int i = 0; i < elemanNumber; i++)
-	{
-		helperNode->satirListesi = helperNode->satirListesi->next;
-		if (helperNode->satirListesi == NULL)
-		{
-			break;
-		}
-	}
-	cout << "|" << setw(16) << node->satirListesi->next << "|" << "   ";
-}
-
 inline void deneme4(yoneticiListesiNode* node, int nodeNumber, int switch_key,satirListesiNode satirNode) {
 	yoneticiListesiNode* temp = node;
 
@@ -167,19 +118,19 @@ inline void deneme4(yoneticiListesiNode* node, int nodeNumber, int switch_key,sa
 
 	switch (switch_key)
 	{
-	case 1:	if (temp->satirListesi != NULL)
+	case 1:	if (temp->satirListesi != NULL)                               // sayiyi yazdirir
 	{
-		cout << temp->satirListesi->data;
+		cout <<"|       "<< temp->satirListesi->data<<"       |";                   
 	}
 		  break;
-	case 2: if (true)
+	case 2: if (true)                                               // satir adresini yazdirir
 	{
 		if (temp->satirListesi != NULL)
 		{
-			cout << temp->satirListesi;
+			cout <<" "<< temp->satirListesi<<" ";
 		}
 		break;
-	case 3:
+	case 3:                                                         // diger satir noduna gecer
 		if (temp->satirListesi->next==nullptr)
 		{
 			//prevtemp = temp->satirListesi;
@@ -190,10 +141,10 @@ inline void deneme4(yoneticiListesiNode* node, int nodeNumber, int switch_key,sa
 		}
 		break;
 	}
-	case 4:
-		cout << temp->satirListesi->next;
+	case 4:                                                       // sonraki satir nodunun adresini yazar
+		cout <<"|"<< temp->satirListesi->next<<"|";
 		break;
-	case 5:
+	case 5:                                                      // ilk satir nodunu atar
 		temp->satirListesi = &satirNode;
 	}
 };
