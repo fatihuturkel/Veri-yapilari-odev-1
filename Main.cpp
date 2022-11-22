@@ -116,4 +116,4 @@ int main() {
 
 
 
-/// gelecek islemler: outer case 2 ve 3 oluşturulup tamamlanacak.
+// gelecek islemler: interafktiflik tarafında fonksiyonel islemler eklenecek.
