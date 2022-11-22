@@ -111,3 +111,9 @@ int main() {
 	graphic(head);
 	
 }
+
+
+
+
+
+/// gelecek islemler: outer case 2 ve 3 oluşturulup tamamlanacak.
