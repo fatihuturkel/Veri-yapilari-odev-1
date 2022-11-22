@@ -83,7 +83,7 @@ int main() {
 	for (int i = 0; i < 27; i++)
 	{
 		dosyaOku.open("veriler.txt");
-		// satir elemanlarýný teker teker çekiyor.
+		// satir elemanlarini teker teker çekiyor.
 		int satirNumber = satirDondur(head, i);
 		for (int i = 0; i < satirNumber + 1; i++)    // +1 arrayda diziler 0dan basladýgý icin eksik satýr cýkma sorununu çözüyor.
 		{
@@ -94,8 +94,6 @@ int main() {
 		string sayiStr;
 		while (getline(iss, sayiStr, ' '))
 		{
-			//cout <<  sayýStr << endl;
-
 			stringstream ss(sayiStr);		 // string to int for sayi
 			int sayiInt = 0;
 			ss >> sayiInt;
@@ -108,13 +106,6 @@ int main() {
 	{
 		bagla(head, satirListesi[i], i);
 	}
-
-	/*
-	for (int i = 0; i < 27; i++)
-	{
-		printAdresSatir(satirListesi[i]);
-	}
-	*/
 
 	printAdres(head);
 	graphic(head);
