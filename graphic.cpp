@@ -360,7 +360,7 @@ inline void graphic(yoneticiListesiNode* yoneticiNode) {
 
 				break;
 			case 7:
-				boslukBirak(15), dikenIsareti();
+				boslukBirak(7), dikenIsareti();
 				for (int i = 0; i < yoneticiNode_elemanSayisi_dondur(yoneticiNode, 15); i++)
 				{
 					boslukBirak(7), deneme4(yoneticiNode, 15, 2, satirListesiBasNodeTutucu[15]), cout << endl; // adres
@@ -663,9 +663,10 @@ inline void graphic(yoneticiListesiNode* yoneticiNode) {
 				}
 				else if (innerIndex == 0)
 				{
-					cout << "Gosterilen satirlarda ilkinci satirdan geriye gidilemez. Lutfen bir onceki sayfaya geciniz.";
-					system("pause");
-					cikis = 0;
+					//cout << "Gosterilen satirlarda ilkinci satirdan geriye gidilemez. Lutfen bir onceki sayfaya geciniz.";
+					outerIndex--;
+					//system("pause");
+					cikis = 1;
 				}
 				else
 				{
@@ -683,9 +684,10 @@ inline void graphic(yoneticiListesiNode* yoneticiNode) {
 				}
 				else if (innerIndex == 7)
 				{
-					cout << "Gosterilen satirlarda sonuncudan ileriye gidilemez. Lutfen ileriki sayfaya geciniz. ";
-					system("pause");
-					cikis = 0;
+					//cout << "Gosterilen satirlarda sonuncudan ileriye gidilemez. Lutfen ileriki sayfaya geciniz. ";
+					outerIndex++;
+					//system("pause");
+					cikis = 1;
 				}
 				else
 				{
@@ -736,15 +738,15 @@ inline void graphic(yoneticiListesiNode* yoneticiNode) {
 
 // ilk satýrda bulunan ilk , son yazýsý ve ---> iþaretini ekrana cizdiren fonksiyon
 inline void ilk_yazisi_ok_isareti() {
-	cout << "ilk" << setw(170) << "--->" << endl;
+	cout << "  ilk" << setw(163) << "--->" << endl;
 }
 
 inline void ok_isareti_sola_saga() {
-	cout << "<---" << setw(170) << "--->" << endl;
+	cout << "  <---" << setw(163) << "--->" << endl;
 }
 
 inline void son_yazisi_ok_isareti() {
-	cout << "<---" << setw(170) << "son"<<endl;
+	cout << "  <---" << setw(46) << "son"<<endl;
 }
 
 inline void yatayCizgiUzunX8() {
