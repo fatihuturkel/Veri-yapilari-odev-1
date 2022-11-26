@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+#include <math.h>
 //#include "yoneticiListesiNode.cpp"
 //#include "satirListesiNode.cpp"
 #include "graphic.cpp"
